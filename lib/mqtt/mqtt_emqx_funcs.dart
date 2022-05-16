@@ -51,16 +51,15 @@ Future<void> mqttConnect() async {
 
   /// Ok, lets try a subscription
   print('Subscribing to Nurowm/Nresponse topic');
-  client.subscribe(subTopic, MqttQos.atMostOnce);
+  client.subscribe(topic, MqttQos.atMostOnce);
 
   client.updates?.listen((List<MqttReceivedMessage<MqttMessage?>>? c) {
         final recMess = c![0].payload as MqttPublishMessage;
-        final pt =
-            MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
+        
+         pt = MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
 
         print(
             'EXAMPLE::Change notification:: topic is <${c[0].topic}>, payload is <-- $pt -->');
-
       }) ??
       client.published?.listen((MqttPublishMessage message) {
         print(
@@ -75,19 +74,16 @@ Future<void> mqttConnect() async {
 void mqttSubscribe() {
   /// Subscribe to GsmClientTest/ledStatus
   print('Subscribing to the Nurow/command topic');
-  client.subscribe(subTopic, MqttQos.atMostOnce);
+  client.subscribe(topic, MqttQos.atMostOnce);
 }
 
-// String mqttPublish(String msg) {
 void mqttPublish(String msg) {
   builder.clear();
   builder.addString(msg);
 
   /// Publish it
   print('EXAMPLE::Publishing our topic');
-  client.publishMessage(pubTopic, MqttQos.atMostOnce, builder.payload!);
-  // print(devicesStateTemp[0]);
-  // return switchState;
+  client.publishMessage(topic, MqttQos.atMostOnce, builder.payload!);
 }
 
 void mqttUnsubscribe() {

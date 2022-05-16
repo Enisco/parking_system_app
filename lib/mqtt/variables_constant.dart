@@ -5,12 +5,12 @@ import 'package:mqtt_client/mqtt_server_client.dart';
 //Single devices widget
 String commandMessage = "";
 int commandDigit = 0;
-
+var pt = '000';
 
 //MQTT EMQX Credentials
 final client =
-    MqttServerClient.withPort('broker.emqx.io', 'nurowapp_client123456789', 1883);
+    MqttServerClient.withPort('broker.emqx.io', 'parkingsystem_client1', 1883);
 var pongCount = 0, connStatus = 0;
-const pubTopic = 'Nurowapp/Appcommand';
+const topic = 'ParkingSystem/ReceiveFromField';
 final builder = MqttClientPayloadBuilder();
-const subTopic = 'Nurowapp/Appresponse';
+// const subTopic = 'ParkingSystem/ReceiveFromField';

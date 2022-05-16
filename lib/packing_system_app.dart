@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:parking_system_app/mqtt/variables_constant.dart';
 
 Color darkblue = const Color.fromARGB(255, 18, 32, 56);
 String combinedParkedStateValue = '000';
@@ -132,7 +133,8 @@ class _PackingSystemAppState extends State<PackingSystemApp> {
                 color: Colors.white,
               ),
               child: Image(
-                image: AssetImage('images/$combinedParkedStateValue.jpg'),
+                // image: AssetImage('images/$combinedParkedStateValue.jpg'),
+                image: AssetImage('images/$pt.jpg'),
               ),
             ),
           ),
