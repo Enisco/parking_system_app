@@ -69,10 +69,10 @@ Future<void> mqttConnect() async {
   return;
 }
 
-//------------------------------------------------------------------------------ *
+//------------------------------------------------------------------------------ 
 
 void mqttSubscribe() {
-  /// Subscribe to GsmClientTest/ledStatus
+  // Subscribe to GsmClientTest/ledStatus
   print('Subscribing to the Nurow/command topic');
   client.subscribe(topic, MqttQos.atMostOnce);
 }
@@ -81,7 +81,7 @@ void mqttPublish(String msg) {
   builder.clear();
   builder.addString(msg);
 
-  /// Publish it
+  // Publish it
   print('EXAMPLE::Publishing our topic');
   client.publishMessage(topic, MqttQos.atMostOnce, builder.payload!);
 }
